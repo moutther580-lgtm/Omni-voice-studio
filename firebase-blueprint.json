@@ -1,0 +1,65 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Registered user profile with audio generation credit balance",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "credits": { "type": "number" },
+        "tier": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "email", "credits"]
+    },
+    "Conversion": {
+      "title": "Conversion",
+      "description": "Audio conversion history record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "charsCount": { "type": "number" },
+        "durationSec": { "type": "number" },
+        "voice": { "type": "string" },
+        "model": { "type": "string" },
+        "format": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "charsCount", "voice"]
+    },
+    "Purchase": {
+      "title": "Purchase",
+      "description": "Character pack top-up transaction record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "planId": { "type": "string" },
+        "charsAdded": { "type": "number" },
+        "amountPkr": { "type": "number" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "charsAdded", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile and credit balance"
+    },
+    "/users/{userId}/conversions/{conversionId}": {
+      "schema": "Conversion",
+      "description": "User audio conversion history"
+    },
+    "/users/{userId}/purchases/{purchaseId}": {
+      "schema": "Purchase",
+      "description": "User top-up transactions"
+    }
+  }
+}

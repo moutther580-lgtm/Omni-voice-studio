@@ -1,0 +1,6 @@
+{
+  "name": "Gemini TTS Android Migration Studio",
+  "description": "Production-ready Java & Kotlin native Android Studio migration for Gemini TTS Converter with text chunking, key rotation, MediaCodec M4A, and accessibility UI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
